@@ -16,7 +16,7 @@ The Shopping Store Website runs from the following file:
     "Once your script is saved, you will need to make it executable by running the command “chmod +x [scriptname]” in the terminal. To run the script, you can use the terminal command “./[scriptname]”"
 
   > chmod +x shopping-store-mac-amd64
-  > udemy_awt_js_pw git:(main) ./shopping-store-mac-amd64
+  > ~ /Users/gerry.waterston/Learning/Playwright/Udemy-Playwright/code/udemy_awt_js_pw/./shopping-store-mac-amd64
 
 Website url:
 
