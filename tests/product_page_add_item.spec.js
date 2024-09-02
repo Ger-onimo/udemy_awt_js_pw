@@ -23,3 +23,9 @@ test("Product Page Add to Basket", async ({ page }) => {
   //await page.pause()
 
 })
+
+productPage.visit()
+productPage.sortProductsByCheapest()
+productPage.addItemToBasket(1)
+Navigation.moveToCheckout()
+basket.removeCheapestItem()
