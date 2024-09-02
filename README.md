@@ -7,8 +7,16 @@ Resources
 The Shopping Store Website runs from the following file:
 
 - shopping-store-mac-amd64
+
   > go to where it's been downloaded, or moved to if moved from the download folder
   > double click on it
+  > OR
+
+  - to run from the terminal (use mac terminal) for zsh (the shell I use), follow this instruction:
+    "Once your script is saved, you will need to make it executable by running the command “chmod +x [scriptname]” in the terminal. To run the script, you can use the terminal command “./[scriptname]”"
+
+  > chmod +x shopping-store-mac-amd64
+  > udemy_awt_js_pw git:(main) ./shopping-store-mac-amd64
 
 Website url:
 
@@ -27,3 +35,7 @@ Visual Studio Code:
 Command to run a test:
 
 > npm run test - or - npm test
+
+Quit command:
+
+> ctrl c
