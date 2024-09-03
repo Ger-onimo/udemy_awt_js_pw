@@ -10,7 +10,7 @@ test.only("New user full end-to-end test journey", async ({ page }) => {
   await productsPage.addProductToBasket(1)
   await productsPage.addProductToBasket(2)
 
-  await page.pause()
+  // await page.pause()
 
 
 }) 

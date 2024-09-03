@@ -1,3 +1,5 @@
+import { expect } from "@playwright/test"
+
 export class ProductsPage {
   constructor (page) {
     this.page = page
@@ -12,9 +14,14 @@ export class ProductsPage {
 // add products to the basket at the nth position in the index - iterates through 
 // each addProductToBasket item on the new_user_full_journey.spec.js test
   addProductToBasket = async (index) => {
-    // move this into the constructor
-    // const addButtons = this.page.locator('[data-qa="product-button"]')
-    await this.addButtons.nth(index).waitFor()
-    await this.addButtons.nth(index).click()
+    const specificAddButton = this.addButtons.nth(index)
+    // move this into the constructor: const addButtons = this.page.locator('[data-qa="product-button"]')
+    await specificAddButton.waitFor()
+    await expect(specificAddButton).toHaveText("Add to Basket")
+    await specificAddButton.click()
+    await expect(specificAddButton).toHaveText("Remove from Basket")
+
+    
+
   }
 }
