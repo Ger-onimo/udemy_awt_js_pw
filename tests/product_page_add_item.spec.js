@@ -24,10 +24,3 @@ test("Product Page Add to Basket", async ({ page }) => {
   //await page.pause()
 
 })
-
-// psuedo code e2e - prep for lesson 12
-// productPage.visit()
-// productPage.sortProductsByCheapest()
-// productPage.addItemToBasket(1)
-// Navigation.moveToCheckout()
-// basket.removeCheapestItem()
