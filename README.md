@@ -39,3 +39,10 @@ Command to run a test:
 Quit command:
 
 > ctrl c
+
+Casing examples:
+
+- Folders > Lowercase, hyphen between each word
+- page-objects folder files/classes > Pascal Case e.g. ProductPage.js
+- tests folder files > Snake Case > e.g. product_page_add_item.spec.js
+- objects > Camel Case > e.g. productPage
