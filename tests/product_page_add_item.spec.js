@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test"
 
 test("Product Page Add to Basket", async ({ page }) => {
+  // move to page-objects
   await page.goto("/")
 
   const addToBasketButton = page.locator('[data-qa="product-button"]').first()
@@ -24,8 +25,9 @@ test("Product Page Add to Basket", async ({ page }) => {
 
 })
 
-productPage.visit()
-productPage.sortProductsByCheapest()
-productPage.addItemToBasket(1)
-Navigation.moveToCheckout()
-basket.removeCheapestItem()
+// psuedo code e2e - prep for lesson 12
+// productPage.visit()
+// productPage.sortProductsByCheapest()
+// productPage.addItemToBasket(1)
+// Navigation.moveToCheckout()
+// basket.removeCheapestItem()
