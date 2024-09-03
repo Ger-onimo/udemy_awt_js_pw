@@ -1,11 +1,12 @@
 import { expect } from "@playwright/test"
+import { Navigation } from "./Navigation"
 
 export class ProductsPage {
   constructor (page) {
     this.page = page
 // page locators added to the constructor
     this.addButtons = page.locator('[data-qa="product-button"]')
-    this.basketCounter = page.locator('[data-qa="header-basket-count"]')
+// this.basketCounter = page.locator('[data-qa="header-basket-count"]')
 
   }
 
@@ -13,14 +14,7 @@ export class ProductsPage {
   visit = async () => {
     await this.page.goto("/")
   }
-// checks the basket count prior to adding items
-  getBasketCount = async () => {
-    await this.basketCounter.waitFor()
-    const text = await this.basketCounter.innerText()
-// changes the counter text "1" to a number 1
-    return parseInt(text, 10)
 
-  }
 // add products to the basket at the nth position in the index - iterates through 
 // each addProductToBasket item on the new_user_full_journey.spec.js test
   addProductToBasket = async (index) => {
@@ -28,10 +22,12 @@ export class ProductsPage {
     // move this into the constructor: const addButtons = this.page.locator('[data-qa="product-button"]')
     await specificAddButton.waitFor()
     await expect(specificAddButton).toHaveText("Add to Basket")
-    const basketCountBeforeAdding = await this.getBasketCount()
+    // the basket count method is now called from the Navigation class
+    const navigation = new Navigation(this.page)
+    const basketCountBeforeAdding = await navigation.getBasketCount()
     await specificAddButton.click()
     await expect(specificAddButton).toHaveText("Remove from Basket")
-    const basketCountAfterAdding = await this.getBasketCount()
+    const basketCountAfterAdding = await navigation.getBasketCount()
     expect (basketCountAfterAdding).toBeGreaterThan(basketCountBeforeAdding)
 
   }
