@@ -1,9 +1,9 @@
 import { test, expect } from "@playwright/test"
 
 test("Product Page Add to Basket", async ({ page }) => {
-  // move to page-objects
+  // move goto to page-objects
   await page.goto("/")
-
+//  -------------------
   const addToBasketButton = page.locator('[data-qa="product-button"]').first()
   const basketCounter = page.locator('[data-qa="header-basket-count"]')
 
