@@ -6,15 +6,14 @@ export class ProductsPage {
     this.page = page
 // page locators added to the constructor
     this.addButtons = page.locator('[data-qa="product-button"]')
-// this.basketCounter = page.locator('[data-qa="header-basket-count"]')
-
   }
 
-  // methods called to run the test steps
+  // Method to visit the home page
   visit = async () => {
     await this.page.goto("/")
   }
 
+// Method to add products to the basket
 // add products to the basket at the nth position in the index - iterates through 
 // each addProductToBasket item on the new_user_full_journey.spec.js test
   addProductToBasket = async (index) => {
