@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test"
-import { Navigation } from "./Navigation"
+import { Navigation } from "./Navigation.js"
 
 export class ProductsPage {
   constructor (page) {
