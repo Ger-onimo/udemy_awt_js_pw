@@ -3,6 +3,7 @@ import { ProductsPage } from "../page-objects/ProductsPage.js"
 import { Navigation } from "../page-objects/Navigation.js"
 import { Checkout } from "../page-objects/Checkout.js"
 import { LoginPage } from "../page-objects/LoginPage.js"
+import { RegisterPage } from "../page-objects/RegisterPage.js"
 
 
 test.only("New user full end-to-end test journey", async ({ page }) => {
@@ -30,11 +31,14 @@ test.only("New user full end-to-end test journey", async ({ page }) => {
   // Calls continueToCheckout()
   await checkout.continueToCheckout()
 
-  // Calls the LoginPage class
+  // Calls the LoginPage page object class
+  // Register: go to the signup page
   const login = new LoginPage(page)
-// Register: go to the signup page
   await login.moveToSignup()
 
+// Calls the RegisterPage page object class
+const registerPage = new RegisterPage(page)
+await registerPage.signUpAsNewUser()
   
 // await page.pause()
 
