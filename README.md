@@ -22,8 +22,6 @@ The Shopping Store Website runs from the following file:
   - Personal mac:
     > ~ /Users/gerrywaterston/Learning/Playwright/Udemy-Playwright/code/udemy_awt_js_pw/./shopping-store-mac-amd64
 
-  Test edit
-
 Website url:
 
 - localhost:2221
