@@ -4,12 +4,15 @@
   "description": "Udemy course: Automated Web Testing with JavaScript and Playwright: https://www.udemy.com/course/automated-web-testing/learn/lecture/35748862#questions/19203146",
   "main": "index.js",
   "scripts": {
-    "test" : "playwright test --headed"
+    "test": "playwright test --headed"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.46.1"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0"
   }
 }
