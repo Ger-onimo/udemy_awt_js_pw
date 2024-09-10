@@ -1,9 +1,9 @@
 # udemy_awt_js_pw
 
-Udemy Course:
+UDEMY COURSE:
 Automated Web Testing with JavaScript and Playwright: https://www.udemy.com/course/automated-web-testing/learn/lecture/35748862#questions/19203146
 
-Resources
+RESOURCES
 The Shopping Store Website runs from the following file:
 
 - shopping-store-mac-amd64
@@ -22,11 +22,11 @@ The Shopping Store Website runs from the following file:
   - Personal mac:
     > ~ /Users/gerrywaterston/Learning/Playwright/Udemy-Playwright/code/udemy_awt_js_pw/./shopping-store-mac-amd64
 
-Website url:
+WEBSITE URL:
 
 - localhost:2221
 
-Node:
+NODE:
 
 > Download latest node.js from: https://nodejs.org/en
 
@@ -50,3 +50,11 @@ Casing examples:
 - page-objects folder files/classes > Pascal Case e.g. ProductPage.js
 - tests folder files > Snake Case > e.g. product_page_add_item.spec.js
 - methods and variables > Camel Case > e.g. productPage
+
+UNIQUE EMAILS & PASSWORDS
+Add UUID generator to generate unique IDs for email addresses and passwords:
+
+- https://www.npmjs.com/package/uuid
+- Note the command as npm install uuid. In practise use:
+  > npm install --save uuid
+- The course uses a specific/fixed version, so adds in @9.0.0 - probs use latest on new projects.
