@@ -77,6 +77,6 @@ export class DeliveryDetails {
     await this.continueToPaymentButton.click()
     await this.page.waitForURL(/\/payment/, { timeout: 3000 })
 
-    // await this.page.pause()
+  // await this.page.pause()
   }
 }
