@@ -49,6 +49,7 @@ await registerPage.signUpAsNewUser(email, password)
 const deliveryDetails = new DeliveryDetails(page)
 // userAddress is the deliveryDetails object which passes in the data to the method in the DeliveryDetails page class object
 await deliveryDetails.fillDetails(userAddress)
+await deliveryDetails.saveDetails()
   
 // await page.pause()
 
