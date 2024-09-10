@@ -1,10 +1,10 @@
 import { test } from "@playwright/test"
+import { v4 as uuidv4 } from "uuid"
 import { ProductsPage } from "../page-objects/ProductsPage.js"
 import { Navigation } from "../page-objects/Navigation.js"
 import { Checkout } from "../page-objects/Checkout.js"
 import { LoginPage } from "../page-objects/LoginPage.js"
 import { RegisterPage } from "../page-objects/RegisterPage.js"
-
 
 test.only("New user full end-to-end test journey", async ({ page }) => {
   const productsPage = new ProductsPage(page)
@@ -38,7 +38,10 @@ test.only("New user full end-to-end test journey", async ({ page }) => {
 
 // Calls the RegisterPage page object class
 const registerPage = new RegisterPage(page)
-await registerPage.signUpAsNewUser()
+//  pass in the email & password
+const email = uuidv4() + "@qa.com"
+const password = uuidv4()
+await registerPage.signUpAsNewUser(email, password)
   
 // await page.pause()
 
