@@ -12,22 +12,23 @@ export class DeliveryDetails {
     
     
   }
-
-  fillDetails = async() => {
+//  change method name from deliveryDetails as there is now a deliveryDetails object in the data folder
+  fillDetails = async (userAddress) => {
     await this.firstNameInput.waitFor()
-    await this.firstNameInput.fill('Gezza')
+    await this.firstNameInput.fill(userAddress.firstName)
     await this.lastNameInput.waitFor()
-    await this.lastNameInput.fill('Waterston')
+    await this.lastNameInput.fill(userAddress.lastName)
     await this.streetInput.waitFor()
-    await this.streetInput.fill('6 My Street')
+    await this.streetInput.fill(userAddress.street)
     await this.postcodeInput.waitFor()
-    await this.postcodeInput.fill('EH1 2AB')
+    await this.postcodeInput.fill(userAddress.postcode)
     await this.cityInput.waitFor()
-    await this.cityInput.fill('Edinburgh')
+    await this.cityInput.fill(userAddress.city)
     await this.countryDropdown.waitFor()
-    await this.countryDropdown.selectOption("United States of America")
+    await this.countryDropdown.selectOption(userAddress.country)
    
-//  await this.page.pause()
+    await this.page.pause()
+ 
 
   }
 }

@@ -6,6 +6,7 @@ import { Checkout } from "../page-objects/Checkout.js"
 import { LoginPage } from "../page-objects/LoginPage.js"
 import { RegisterPage } from "../page-objects/RegisterPage.js"
 import { DeliveryDetails } from "../page-objects/DeliveryDetails.js"
+import { deliveryDetails as userAddress } from "../data/deliveryDetails.js"
 
 test.only("New user full end-to-end test journey", async ({ page }) => {
   const productsPage = new ProductsPage(page)
@@ -44,8 +45,10 @@ const email = uuidv4() + "@qa.com"
 const password = uuidv4()
 await registerPage.signUpAsNewUser(email, password)
 
+// Calls the DeliveryDetails page object class
 const deliveryDetails = new DeliveryDetails(page)
-await deliveryDetails.fillDetails()
+// userAddress is the deliveryDetails object which passes in the data to the method in the DeliveryDetails page class object
+await deliveryDetails.fillDetails(userAddress)
   
 // await page.pause()
 
