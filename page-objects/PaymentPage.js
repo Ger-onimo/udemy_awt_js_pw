@@ -1,4 +1,5 @@
 import { expect } from "@playwright/test"
+import { paymentDetails } from "../data/paymentDetails"
 
 export class PaymentPage {
     constructor(page) {
@@ -15,6 +16,11 @@ export class PaymentPage {
         this.discountActivatedMessage = page.locator('[data-qa="discount-active-message"]')
         this.totalValue = page.locator('[data-qa="total-value"]')
         this.discountedValue = page.locator('[data-qa="total-with-discount-value"]')
+        this.creditCardOwnerInput = page.locator('[data-qa="credit-card-owner"]')
+        this.creditCardNumberInput = page.locator('[data-qa="credit-card-number"]')
+        this.creditCardValidUntilInput = page.locator('[data-qa="valid-until"]')
+        this.creditCardCvcInput = page.locator('[data-qa="credit-card-cvc"]')
+
       }
 
     activateDiscount = async () => {
@@ -47,9 +53,22 @@ export class PaymentPage {
       const totalValueText = await this.totalValue.innerText()
       const totalValueOnlyStringNumber = totalValueText.replace("$", "")
       const totalValueNumber = parseInt(totalValueOnlyStringNumber, 10)
-
-      expect (discountValueNumber).toBeLessThan(totalValueNumber)
+      expect (discountValueNumber).toBeLessThan(totalValueNumber) 
       
+    }
+
+    fillPaymentDetails = async (paymentDetails) => {
+      await this.creditCardOwnerInput.waitFor()
+      await this.creditCardOwnerInput.fill(paymentDetails.owner)
+      await this.creditCardNumberInput.waitFor()
+      await this.creditCardNumberInput.fill(paymentDetails.number)
+      await this.creditCardValidUntilInput.waitFor()
+      await this.creditCardValidUntilInput.fill(paymentDetails.validUntil)
+      await this.creditCardCvcInput.waitFor()
+      await this.creditCardCvcInput.fill(paymentDetails.cvc)
+
+
       // await this.page.pause() 
+
     }
 }
