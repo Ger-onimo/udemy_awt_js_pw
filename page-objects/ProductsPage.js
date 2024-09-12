@@ -1,13 +1,14 @@
 import { expect } from "@playwright/test"
 import { Navigation } from "./Navigation.js"
+import { isDeskTopViewport } from "../utils/isDesktopViewport.js"
 
-// Function to determine if the test is on a Desktop viewport
-const isDeskTopViewport = (page) => {
-  const size = page.viewportSize()
-  return size.width >= 600
-// returns true or false
+// // Function to determine if the test is on a Desktop viewport
+// const isDeskTopViewport = (page) => {
+//   const size = page.viewportSize()
+//   return size.width >= 600
+// // returns true or false
 
-}
+// }
 
 export class ProductsPage {
   constructor (page) {
@@ -48,6 +49,7 @@ export class ProductsPage {
 
     let basketCountBeforeAdding // Uses variable type "let", so that it can be defined in the ifs
     // Only on Desktop viewport - This next line for get BasketCount is now in an if condition set to false
+    // isDeskTopViewport function now moved to the utils folder
     if (isDeskTopViewport(this.page)) {
       basketCountBeforeAdding = await navigation.getBasketCount() 
     }
