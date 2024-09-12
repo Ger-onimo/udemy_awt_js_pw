@@ -20,7 +20,7 @@ export class PaymentPage {
         this.creditCardNumberInput = page.locator('[data-qa="credit-card-number"]')
         this.creditCardValidUntilInput = page.locator('[data-qa="valid-until"]')
         this.creditCardCvcInput = page.locator('[data-qa="credit-card-cvc"]')
-
+        this.payButton = page.locator('[data-qa="pay-button"]')
       }
 
     activateDiscount = async () => {
@@ -66,9 +66,13 @@ export class PaymentPage {
       await this.creditCardValidUntilInput.fill(paymentDetails.validUntil)
       await this.creditCardCvcInput.waitFor()
       await this.creditCardCvcInput.fill(paymentDetails.cvc)
+    }
 
+    completePayment = async () => {
+      await this.payButton.waitFor()
+      await this.payButton.click()
+      await this.page.waitForURL(/\/thank-you/, { timeout: 3000 })
 
       // await this.page.pause() 
-
     }
 }

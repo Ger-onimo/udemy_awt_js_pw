@@ -58,6 +58,7 @@ await deliveryDetails.continueToPayment()
 const paymentPage = new PaymentPage(page)
 await paymentPage.activateDiscount()
 await paymentPage.fillPaymentDetails(paymentDetails)
+await paymentPage.completePayment()
 // await page.pause()
 
 }) 
