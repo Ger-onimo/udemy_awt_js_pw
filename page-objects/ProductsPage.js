@@ -23,6 +23,18 @@ export class ProductsPage {
     await this.page.goto("/")
   }
 
+  sortByCheapest = async () => {
+    await this.sortDropdown.waitFor()
+    // get the order of the products
+    await this.productTitle.first().waitFor()
+    const productTitleBeforeSorting = await this.productTitle.allInnerTexts()
+    await this.sortDropdown.selectOption("price-asc")
+    // get order of products
+    // expect that these lists are different
+    const productTitleAfterSorting = await this.productTitle.allInnerTexts()
+    expect(productTitleAfterSorting).not.toEqual(productTitleBeforeSorting)
+  }
+
 // Method to add products to the basket
 // add products to the basket at the nth position in the index - iterates through 
 // each addProductToBasket item on the new_user_full_journey.spec.js test
@@ -34,9 +46,10 @@ export class ProductsPage {
     // the basket count method is now called from the Navigation class
     const navigation = new Navigation(this.page)
 
+    let basketCountBeforeAdding // Uses variable type "let", so that it can be defined in the ifs
     // Only on Desktop viewport - This next line for get BasketCount is now in an if condition set to false
     if (isDeskTopViewport(this.page)) {
-      const basketCountBeforeAdding = await navigation.getBasketCount()
+      basketCountBeforeAdding = await navigation.getBasketCount() 
     }
     await specificAddButton.click()
     await expect(specificAddButton).toHaveText("Remove from Basket")
@@ -46,20 +59,7 @@ export class ProductsPage {
       const basketCountAfterAdding = await navigation.getBasketCount()
       expect (basketCountAfterAdding).toBeGreaterThan(basketCountBeforeAdding)
       }
-  }
 
-  sortByCheapest = async () => {
-    await this.sortDropdown.waitFor()
-    // get the order of the products
-    await this.productTitle.first().waitFor()
-    const productTitleBeforeSorting = await this.productTitle.allInnerTexts()
-    await this.sortDropdown.selectOption("price-asc")
-    // get order of products
-    // expect that these lists are different
-    const productTitleAfterSorting = await this.productTitle.allInnerTexts()
-    expect(productTitleAfterSorting).not.toEqual(productTitleBeforeSorting)
-    
-    await this.page.pause()
+  // await this.page.pause()
   }
-
 }
