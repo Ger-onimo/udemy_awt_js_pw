@@ -1,6 +1,14 @@
 import { expect } from "@playwright/test"
 import { Navigation } from "./Navigation.js"
 
+// Function to determine if the test is on a Desktop viewport
+const isDeskTopViewport = (page) => {
+  const size = page.viewportSize()
+  return size.width >= 600
+// returns true or false
+
+}
+
 export class ProductsPage {
   constructor (page) {
     this.page = page
@@ -25,12 +33,19 @@ export class ProductsPage {
     await expect(specificAddButton).toHaveText("Add to Basket")
     // the basket count method is now called from the Navigation class
     const navigation = new Navigation(this.page)
-    const basketCountBeforeAdding = await navigation.getBasketCount()
+
+    // Only on Desktop viewport - This next line for get BasketCount is now in an if condition set to false
+    if (isDeskTopViewport(this.page)) {
+      const basketCountBeforeAdding = await navigation.getBasketCount()
+    }
     await specificAddButton.click()
     await expect(specificAddButton).toHaveText("Remove from Basket")
-    const basketCountAfterAdding = await navigation.getBasketCount()
-    expect (basketCountAfterAdding).toBeGreaterThan(basketCountBeforeAdding)
 
+    // Only on Desktop viewport - These next 2 lines for get BasketCount are now in an if condition set to false
+    if (isDeskTopViewport(this.page)) {
+      const basketCountAfterAdding = await navigation.getBasketCount()
+      expect (basketCountAfterAdding).toBeGreaterThan(basketCountBeforeAdding)
+      }
   }
 
   sortByCheapest = async () => {
@@ -44,7 +59,7 @@ export class ProductsPage {
     const productTitleAfterSorting = await this.productTitle.allInnerTexts()
     expect(productTitleAfterSorting).not.toEqual(productTitleBeforeSorting)
     
-    // await this.page.pause()
+    await this.page.pause()
   }
 
 }
