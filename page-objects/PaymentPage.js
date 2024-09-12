@@ -21,7 +21,7 @@ export class PaymentPage {
         this.creditCardValidUntilInput = page.locator('[data-qa="valid-until"]')
         this.creditCardCvcInput = page.locator('[data-qa="credit-card-cvc"]')
         this.payButton = page.locator('[data-qa="pay-button"]')
-      }
+    }
 
     activateDiscount = async () => {
       await this.discountCode.waitFor()
