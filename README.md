@@ -17,11 +17,11 @@ The Shopping Store Website runs from the following file:
 
   
 
-  - WORK:
+  - WORK mac:
     > chmod +x shopping-store-mac-arm64
     > ~ /Users/gerry.waterston/Learning/Playwright/Udemy-Playwright/code/udemy_awt_js_pw/./shopping-store-mac-arm64
 
-  - PERSONAL:
+  - PERSONAL mac:
     > chmod +x shopping-store-mac-amd64
     > ~ /Users/gerrywaterston/Learning/Playwright/Udemy-Playwright/code/udemy_awt_js_pw/./shopping-store-mac-amd64
 
