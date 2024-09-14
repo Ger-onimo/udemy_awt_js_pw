@@ -35,7 +35,7 @@ NODE:
 
 - Choose the LTS option
 
-Visual Studio Code:
+VISUAL STUDI CODE:
 
 - Download VS code: https://code.visualstudio.com/download
 
